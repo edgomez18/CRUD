@@ -46,7 +46,6 @@
             this.stxt.Name = "stxt";
             this.stxt.Size = new System.Drawing.Size(298, 20);
             this.stxt.TabIndex = 1;
-            this.stxt.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // sbnt
             // 

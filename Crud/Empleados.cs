@@ -23,9 +23,9 @@ namespace Crud
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, KeyPressEventArgs e)
         {
-
+           
         }
 
         private void newbnt_Click(object sender, EventArgs e)
@@ -98,7 +98,14 @@ namespace Crud
                 MessageBox.Show(ex.Message, "Error");
 
             }
-            if (sid.Checked)
+    if (stxt.Text.Length == 0)
+            {
+                SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from empleado", cnx);
+                DataTable tabla = new DataTable("Empleados");
+                adac.Fill(tabla);
+                dataGridView1.DataSource = tabla;
+            }
+else if (sid.Checked)
             {
                 SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from empleado where id like '"+stxt.Text+"'", cnx);
                 DataTable tabla = new DataTable("Empleados");
@@ -126,6 +133,7 @@ namespace Crud
                 adac.Fill(tabla);
                 dataGridView1.DataSource = tabla;
             }
+            
         }
     }
 }
