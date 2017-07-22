@@ -21,6 +21,16 @@ namespace Crud
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             CEmpleado frm = new CEmpleado();
+            DataGridViewRow act = dataGridView1.Rows[e.RowIndex]; 
+            frm.idemp.Text = act.Cells["id"].Value.ToString();
+            frm.namemptxt.Text = act.Cells["name"].Value.ToString();
+            frm.lnamemptxt.Text = act.Cells["lastname"].Value.ToString();
+            frm.idpersemptxt.Text = act.Cells["idperson"].Value.ToString();
+           
+            //frm.dateingemp.Text = act.Cells["years"].Value.ToString();
+            frm.sexempcb.Text = act.Cells["sex"].Value.ToString();
+            frm.salarytxt.Text = act.Cells["salary"].Value.ToString();
+            frm.saveemp.Visible = false;
             frm.Show();
         }
 
@@ -32,6 +42,8 @@ namespace Crud
         private void newbnt_Click(object sender, EventArgs e)
         {
             CEmpleado frm = new CEmpleado();
+            frm.updatebtn.Visible = false;
+            frm.deletebtn.Visible = false;
             frm.Show();
         }
 
@@ -135,6 +147,11 @@ else if (sid.Checked)
                 dataGridView1.DataSource = tabla;
             }
             
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
