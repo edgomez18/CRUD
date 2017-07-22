@@ -330,6 +330,7 @@
             this.updatebtn.TabIndex = 22;
             this.updatebtn.Text = "Actualizar";
             this.updatebtn.UseVisualStyleBackColor = true;
+            this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
             // 
             // deletebtn
             // 

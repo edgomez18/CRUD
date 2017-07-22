@@ -116,18 +116,38 @@ namespace Crud
                 MessageBox.Show(ex.Message, "Error");
 
             }
-            string comando = "DELETE FROM empleado WHERE id = '2'";
+            string comando = "DELETE FROM empleado WHERE id = '"+idemp.Text+"'";
             SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
-            
-            namemptxt.Text = "";
-            lnamemptxt.Text = "";
-            idpersemptxt.Text = "";
-            bdayemptxt.Text = "";
-            dateingemp.Text = "";
-            sexempcb.Text = "";
-            salarytxt.Text = "";
-            this.namemptxt.Focus();
-                MessageBox.Show("se ha eliminado!");
+            insertion.ExecuteNonQuery();
+                MessageBox.Show("Se ha eliminado!");
+                Close();
+            }
+            else if (result == DialogResult.No)
+            {
+            }
+        }
+
+        private void updatebtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Seguro que desea Actualizar?", "Eliminar empleado", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
+                try
+                {
+                    cnx.Open();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+
+                }
+                string comando = "UPDATE empleado set name = '" + namemptxt.Text + "', lastname = '" + lnamemptxt.Text + "', idperson = '" + idpersemptxt.Text + "', bday = '" + bdayemptxt.Text + "', years = '" + dateingemp.Text + "', sex = '" + sexempcb.Text + "', salary = '" + salarytxt.Text + "' WHERE id = '" + idemp.Text + "'";
+                SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
+                insertion.ExecuteNonQuery();
+                MessageBox.Show("Se ha actualizado!");
+                Close();
             }
             else if (result == DialogResult.No)
             {
