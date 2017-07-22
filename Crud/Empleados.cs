@@ -20,7 +20,8 @@ namespace Crud
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            CEmpleado frm = new CEmpleado();
+            frm.Show();
         }
 
         private void textBox1_TextChanged(object sender, KeyPressEventArgs e)
