@@ -30,6 +30,7 @@ namespace Crud
 
         private void CEmpleado_Load(object sender, EventArgs e)
         {
+            this.namemptxt.Focus();
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -55,7 +56,7 @@ namespace Crud
                 MessageBox.Show(ex.Message, "Error");
 
             }
-            string comando = "INSERT INTO empleado(name, lastname, idperson, bday, years, sex) VALUES('" + namemptxt.Text + "', '" + lnamemptxt.Text + "','" + idpersemptxt.Text + "','" + bdayemptxt.Text + "', '"+yearsemptxt.Text+"', '"+sexempcb.Text+"');";
+            string comando = "INSERT INTO empleado(name, lastname, idperson, bday, years, sex, salary) VALUES('" + namemptxt.Text + "', '" + lnamemptxt.Text + "','" + idpersemptxt.Text + "','" + bdayemptxt.Text + "', '" + dateingemp.Text + "', '" + sexempcb.Text + "', '"+salarytxt.Text+"');";
             SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
             if (insertion.ExecuteNonQuery() > 0) { 
                 MessageBox.Show("Se agrego correctamente");
@@ -64,8 +65,9 @@ namespace Crud
             lnamemptxt.Text = "";
             idpersemptxt.Text = "";
             bdayemptxt.Text = "";
-            yearsemptxt.Text = "";
+            dateingemp.Text = "";
             sexempcb.Text = "";
+            salarytxt.Text = "";
             this.namemptxt.Focus();
 
             /*Operacion oper = new Operacion();
@@ -78,9 +80,58 @@ namespace Crud
             lnamemptxt.Text = "";
             idpersemptxt.Text = "";
             bdayemptxt.Text = "";
-            yearsemptxt.Text = "";
+            dateingemp.Text = "";
             sexempcb.Text = "";
             this.namemptxt.Focus();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Seguro que dese Eliminar?", "Eliminar empleado", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
+            try
+            {
+                cnx.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+
+            }
+            string comando = "DELETE FROM empleado WHERE id = '2'";
+            SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
+            
+            namemptxt.Text = "";
+            lnamemptxt.Text = "";
+            idpersemptxt.Text = "";
+            bdayemptxt.Text = "";
+            dateingemp.Text = "";
+            sexempcb.Text = "";
+            salarytxt.Text = "";
+            this.namemptxt.Focus();
+                MessageBox.Show("se ha eliminado!");
+            }
+            else if (result == DialogResult.No)
+            {
+            }
         }
     }
 }
