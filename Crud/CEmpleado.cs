@@ -95,10 +95,7 @@ namespace Crud
 
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
@@ -152,6 +149,16 @@ namespace Crud
             else if (result == DialogResult.No)
             {
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime fechan = bdayemptxt.Value;
+            int anyo = System.DateTime.Now.Year - fechan.Year;
+            if (System.DateTime.Now.Subtract(fechan.AddYears(anyo)).TotalDays < 0)
+                edadtxt.Text = Convert.ToString(anyo - 1);
+            else
+                edadtxt.Text = Convert.ToString(anyo);
         }
     }
 }

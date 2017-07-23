@@ -51,7 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.salarytxt = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.edadtxt = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -216,7 +216,7 @@
             this.bdayemptxt.Name = "bdayemptxt";
             this.bdayemptxt.Size = new System.Drawing.Size(95, 20);
             this.bdayemptxt.TabIndex = 17;
-            this.bdayemptxt.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            //this.bdayemptxt.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateingemp
             // 
@@ -282,7 +282,7 @@
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.edadtxt);
             this.groupBox3.Location = new System.Drawing.Point(296, 94);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 130);
@@ -290,12 +290,12 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Calculos";
             // 
-            // textBox2
+            // edadtxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 26);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(99, 20);
-            this.textBox2.TabIndex = 0;
+            this.edadtxt.Location = new System.Drawing.Point(7, 26);
+            this.edadtxt.Name = "edadtxt";
+            this.edadtxt.Size = new System.Drawing.Size(99, 20);
+            this.edadtxt.TabIndex = 0;
             // 
             // textBox3
             // 
@@ -312,6 +312,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Calcular Edad";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -390,7 +391,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox edadtxt;
         public System.Windows.Forms.TextBox idemp;
         public System.Windows.Forms.TextBox namemptxt;
         public System.Windows.Forms.TextBox lnamemptxt;
