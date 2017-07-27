@@ -31,6 +31,29 @@ namespace Crud
         private void CEmpleado_Load(object sender, EventArgs e)
         {
             this.namemptxt.Focus();
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
+            try
+            {
+                cnx.Open();
+                string cmd = "SELECT * FROM departament";
+                SQLiteDataAdapter dept = new SQLiteDataAdapter(cmd, cnx);
+                DataTable datoscbx = new DataTable();
+                dept.Fill(datoscbx);
+                deptxt.DataSource = datoscbx;
+                deptxt.DisplayMember = "namedept";
+                deptxt.ValueMember = "id";
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+
+            }
+            finally
+            {
+                cnx.Close();
+            }
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -56,7 +79,7 @@ namespace Crud
                 MessageBox.Show(ex.Message, "Error");
 
             }
-            string comando = "INSERT INTO empleado(name, lastname, idperson, bday, years, sex, salary) VALUES('" + namemptxt.Text + "', '" + lnamemptxt.Text + "','" + idpersemptxt.Text + "','" + bdayemptxt.Text + "', '" + dateingemp.Text + "', '" + sexempcb.Text + "', '"+salarytxt.Text+"');";
+            string comando = "INSERT INTO empleado(name, lastname, idperson, bday, years, sex, salary, dept, position) VALUES('" + namemptxt.Text + "', '" + lnamemptxt.Text + "','" + idpersemptxt.Text + "','" + bdayemptxt.Text + "', '" + dateingemp.Text + "', '" + sexempcb.Text + "', '" + salarytxt.Text + "', '" + deptxt.Text + "', '" + positiontxt.Text + "');";
             SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
             if (insertion.ExecuteNonQuery() > 0) { 
                 MessageBox.Show("Se agrego correctamente");
@@ -140,7 +163,7 @@ namespace Crud
                     MessageBox.Show(ex.Message, "Error");
 
                 }
-                string comando = "UPDATE empleado set name = '" + namemptxt.Text + "', lastname = '" + lnamemptxt.Text + "', idperson = '" + idpersemptxt.Text + "', bday = '" + bdayemptxt.Text + "', years = '" + dateingemp.Text + "', sex = '" + sexempcb.Text + "', salary = '" + salarytxt.Text + "' WHERE id = '" + idemp.Text + "'";
+                string comando = "UPDATE empleado set name = '" + namemptxt.Text + "', lastname = '" + lnamemptxt.Text + "', idperson = '" + idpersemptxt.Text + "', bday = '" + bdayemptxt.Text + "', years = '" + dateingemp.Text + "', sex = '" + sexempcb.Text + "', salary = '" + salarytxt.Text + "', dept = '" +deptxt.Text+"', position = '"+positiontxt.Text+"' WHERE id = '" + idemp.Text + "'";
                 SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
                 insertion.ExecuteNonQuery();
                 MessageBox.Show("Se ha actualizado!");
@@ -159,6 +182,16 @@ namespace Crud
                 edadtxt.Text = Convert.ToString(anyo - 1);
             else
                 edadtxt.Text = Convert.ToString(anyo);
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

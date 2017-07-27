@@ -48,15 +48,19 @@
             this.dateingemp = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.salarytxt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.edadtxt = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.edadtxt = new System.Windows.Forms.TextBox();
             this.updatebtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
+            this.positiontxt = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.deptxt = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -216,7 +220,6 @@
             this.bdayemptxt.Name = "bdayemptxt";
             this.bdayemptxt.Size = new System.Drawing.Size(95, 20);
             this.bdayemptxt.TabIndex = 17;
-            //this.bdayemptxt.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateingemp
             // 
@@ -245,21 +248,43 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(12, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(277, 199);
+            this.groupBox1.Size = new System.Drawing.Size(277, 172);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.deptxt);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.positiontxt);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.salarytxt);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(296, 26);
+            this.groupBox2.Location = new System.Drawing.Point(295, 120);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 62);
+            this.groupBox2.Size = new System.Drawing.Size(200, 103);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Salario";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 51);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Dept.:";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // salarytxt
+            // 
+            this.salarytxt.Location = new System.Drawing.Point(55, 25);
+            this.salarytxt.Name = "salarytxt";
+            this.salarytxt.Size = new System.Drawing.Size(117, 20);
+            this.salarytxt.TabIndex = 1;
             // 
             // label6
             // 
@@ -270,39 +295,27 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Salario:";
             // 
-            // salarytxt
-            // 
-            this.salarytxt.Location = new System.Drawing.Point(55, 25);
-            this.salarytxt.Name = "salarytxt";
-            this.salarytxt.Size = new System.Drawing.Size(117, 20);
-            this.salarytxt.TabIndex = 1;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.edadtxt);
-            this.groupBox3.Location = new System.Drawing.Point(296, 94);
+            this.groupBox3.Location = new System.Drawing.Point(295, 25);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 130);
+            this.groupBox3.Size = new System.Drawing.Size(200, 89);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Calculos";
             // 
-            // edadtxt
+            // button2
             // 
-            this.edadtxt.Location = new System.Drawing.Point(7, 26);
-            this.edadtxt.Name = "edadtxt";
-            this.edadtxt.Size = new System.Drawing.Size(99, 20);
-            this.edadtxt.TabIndex = 0;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(6, 77);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 1;
+            this.button2.Location = new System.Drawing.Point(112, 53);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(81, 24);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Antiguedad";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -314,14 +327,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // textBox3
             // 
-            this.button2.Location = new System.Drawing.Point(112, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 24);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Antiguedad";
-            this.button2.UseVisualStyleBackColor = true;
+            this.textBox3.Location = new System.Drawing.Point(6, 52);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 1;
+            // 
+            // edadtxt
+            // 
+            this.edadtxt.Location = new System.Drawing.Point(7, 26);
+            this.edadtxt.Name = "edadtxt";
+            this.edadtxt.Size = new System.Drawing.Size(99, 20);
+            this.edadtxt.TabIndex = 0;
             // 
             // updatebtn
             // 
@@ -342,6 +360,30 @@
             this.deletebtn.Text = "Borrar";
             this.deletebtn.UseVisualStyleBackColor = true;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
+            // 
+            // positiontxt
+            // 
+            this.positiontxt.Location = new System.Drawing.Point(55, 77);
+            this.positiontxt.Name = "positiontxt";
+            this.positiontxt.Size = new System.Drawing.Size(117, 20);
+            this.positiontxt.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(-1, 80);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(50, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Posicion:";
+            // 
+            // deptxt
+            // 
+            this.deptxt.FormattingEnabled = true;
+            this.deptxt.Location = new System.Drawing.Point(55, 51);
+            this.deptxt.Name = "deptxt";
+            this.deptxt.Size = new System.Drawing.Size(121, 21);
+            this.deptxt.TabIndex = 6;
             // 
             // CEmpleado
             // 
@@ -403,5 +445,9 @@
         public System.Windows.Forms.Button saveemp;
         public System.Windows.Forms.Button updatebtn;
         public System.Windows.Forms.Button deletebtn;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.TextBox positiontxt;
+        public System.Windows.Forms.ComboBox deptxt;
     }
 }
