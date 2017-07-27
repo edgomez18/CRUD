@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Crud
 {
-    public partial class calendar : Form
+    public partial class addroster : Form
     {
-        public calendar()
+        public addroster()
         {
             InitializeComponent();
         }
