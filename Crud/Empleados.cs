@@ -30,6 +30,8 @@ namespace Crud
             //frm.dateingemp.Text = act.Cells["years"].Value.ToString();
             frm.sexempcb.Text = act.Cells["sex"].Value.ToString();
             frm.salarytxt.Text = act.Cells["salary"].Value.ToString();
+            frm.deptxt.Text = act.Cells["dept"].Value.ToString();
+            frm.positiontxt.Text = act.Cells["position"].Value.ToString();
             frm.saveemp.Visible = false;
             frm.Show();
         }
@@ -49,20 +51,9 @@ namespace Crud
 
         private void connection_Click(object sender, EventArgs e)
         {
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
-            try
-            {
-                cnx.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
-
-            }
-            SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from empleado", cnx);
-            DataTable tabla = new DataTable("Empleados");
-            adac.Fill(tabla);
-            dataGridView1.DataSource = tabla;
+           nomina frm = new nomina();
+           frm.Show();
+           
 
         }
 
