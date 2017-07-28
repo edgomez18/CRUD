@@ -111,5 +111,12 @@ namespace Crud
         {
             this.Close();
         }
+
+        private void searchbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            nomina frm = new nomina();
+            frm.Show();
+        }
     }
 }

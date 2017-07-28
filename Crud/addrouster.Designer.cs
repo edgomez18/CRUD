@@ -60,6 +60,8 @@
             this.cancelbtn = new System.Windows.Forms.Button();
             this.statuscb = new System.Windows.Forms.ComboBox();
             this.calcularbtn = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.searchbtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -67,6 +69,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.searchbtn);
             this.groupBox1.Controls.Add(this.idroster);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -374,11 +377,31 @@
             this.calcularbtn.UseVisualStyleBackColor = true;
             this.calcularbtn.Click += new System.EventHandler(this.calcularbtn_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(201, 283);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(45, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Estatus:";
+            // 
+            // searchbtn
+            // 
+            this.searchbtn.Location = new System.Drawing.Point(255, 10);
+            this.searchbtn.Name = "searchbtn";
+            this.searchbtn.Size = new System.Drawing.Size(75, 23);
+            this.searchbtn.TabIndex = 10;
+            this.searchbtn.Text = "Buscar";
+            this.searchbtn.UseVisualStyleBackColor = true;
+            this.searchbtn.Click += new System.EventHandler(this.searchbtn_Click);
+            // 
             // addrouster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 332);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.calcularbtn);
             this.Controls.Add(this.statuscb);
             this.Controls.Add(this.cancelbtn);
@@ -397,6 +420,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -434,5 +458,7 @@
         public System.Windows.Forms.Button cancelbtn;
         public System.Windows.Forms.ComboBox statuscb;
         private System.Windows.Forms.Button calcularbtn;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button searchbtn;
     }
 }
