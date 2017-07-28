@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace Crud
 {
@@ -54,16 +55,6 @@ namespace Crud
 
         private void addrouster_Load(object sender, EventArgs e)
         {
-/*double ars = Convert.ToDouble(salarytxt.Text) * 0.033;
-            arstxt.Text = Convert.ToString(ars);
-            double afp = Convert.ToDouble(salarytxt.Text) * 0.027;
-            afptxt.Text = Convert.ToString(afp);
-            double netsal = Convert.ToDouble(salarytxt.Text);
-          //  if (desctxt.Text =! )
-            double desc = Convert.ToDouble(desctxt.Text);
-            double totalsalary = netsal - (ars + afp + desc);
-
-            salaryrealtxt.Text = Convert.ToString(totalsalary);*/
         }
 
         private void calcularbtn_Click(object sender, EventArgs e)
@@ -86,6 +77,39 @@ namespace Crud
                 salaryrealtxt.Text = Convert.ToString(totalsalary);
             }
            
+        }
+
+        private void savebtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(statuscb.Text)) { MessageBox.Show("Seleccione Un estatus por favor!"); }
+            else {
+                SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
+                try
+                {
+                    cnx.Open();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+
+                }
+                string nameandlast = String.Format("{0} {1}", nametxt.Text, lnametxt.Text);
+                string comando = "INSERT INTO roster(name_emp, dept_emp, position_emp, date, date_start, date_end, neto_salary_emp, ars, afp, others_desc, final_salary_emp, status) VALUES('" + nameandlast + "', '" + deptxt.Text + "','" + positiontxt.Text + "','" + todaydate.Text + "', '" + datestart.Text + "', '" + datend.Text + "', '" + salarytxt.Text + "', '" + arstxt.Text + "', '" + afptxt.Text + "', '" + desctxt.Text + "', '" + salaryrealtxt.Text + "', '" + statuscb.Text + "');";
+                SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
+                if (insertion.ExecuteNonQuery() > 0)
+                {
+                    MessageBox.Show("Se agrego correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Algo ha fallado");
+                }
+            }
+        }
+
+        private void cancelbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -57,7 +57,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.salaryrealtxt = new System.Windows.Forms.TextBox();
             this.savebtn = new System.Windows.Forms.Button();
-            this.clearbtn = new System.Windows.Forms.Button();
+            this.cancelbtn = new System.Windows.Forms.Button();
             this.statuscb = new System.Windows.Forms.ComboBox();
             this.calcularbtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -340,19 +340,25 @@
             this.savebtn.TabIndex = 3;
             this.savebtn.Text = "Guardar";
             this.savebtn.UseVisualStyleBackColor = true;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
-            // clearbtn
+            // cancelbtn
             // 
-            this.clearbtn.Location = new System.Drawing.Point(373, 297);
-            this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(75, 23);
-            this.clearbtn.TabIndex = 4;
-            this.clearbtn.Text = "Limpear";
-            this.clearbtn.UseVisualStyleBackColor = true;
+            this.cancelbtn.Location = new System.Drawing.Point(373, 297);
+            this.cancelbtn.Name = "cancelbtn";
+            this.cancelbtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelbtn.TabIndex = 4;
+            this.cancelbtn.Text = "Cancelar";
+            this.cancelbtn.UseVisualStyleBackColor = true;
+            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click);
             // 
             // statuscb
             // 
+            this.statuscb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statuscb.FormattingEnabled = true;
+            this.statuscb.Items.AddRange(new object[] {
+            "Abierta",
+            "Cerrada"});
             this.statuscb.Location = new System.Drawing.Point(162, 299);
             this.statuscb.Name = "statuscb";
             this.statuscb.Size = new System.Drawing.Size(121, 21);
@@ -375,7 +381,7 @@
             this.ClientSize = new System.Drawing.Size(460, 332);
             this.Controls.Add(this.calcularbtn);
             this.Controls.Add(this.statuscb);
-            this.Controls.Add(this.clearbtn);
+            this.Controls.Add(this.cancelbtn);
             this.Controls.Add(this.savebtn);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -425,7 +431,7 @@
         public System.Windows.Forms.TextBox salaryrealtxt;
         public System.Windows.Forms.TextBox desctxt;
         public System.Windows.Forms.Button savebtn;
-        public System.Windows.Forms.Button clearbtn;
+        public System.Windows.Forms.Button cancelbtn;
         public System.Windows.Forms.ComboBox statuscb;
         private System.Windows.Forms.Button calcularbtn;
     }
