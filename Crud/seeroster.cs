@@ -89,5 +89,70 @@ namespace Crud
             adac.Fill(tabla);
             dataGridView1.DataSource = tabla;
         }
+
+        private void sid_roster_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchbtn_Click(object sender, EventArgs e)
+        {
+
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
+            try
+            {
+                cnx.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+
+            }
+           if (sopen_roster.Checked)
+            {
+                string status = "Abierta";
+                SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from roster where status like '" + status + "'", cnx);
+                DataTable tabla = new DataTable("Empleados");
+                adac.Fill(tabla);
+                dataGridView1.DataSource = tabla;
+            }
+            else if (sopen_roster.Checked)
+            {
+                string status = "Cerrada";
+                SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from roster where status like '" + status + "'", cnx);
+                DataTable tabla = new DataTable("Empleados");
+                adac.Fill(tabla);
+                dataGridView1.DataSource = tabla;
+            }
+            else if (searchtxt.Text.Length == 0)
+            {
+                SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from roster", cnx);
+                DataTable tabla = new DataTable("roster");
+                adac.Fill(tabla);
+                dataGridView1.DataSource = tabla;
+            }
+            else if (sid_roster.Checked)
+            {
+                SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from roster where id_roster like '" + searchtxt.Text + "'", cnx);
+                DataTable tabla = new DataTable("roster");
+                adac.Fill(tabla);
+                dataGridView1.DataSource = tabla;
+            }
+            else if (sdate_roster.Checked)
+            {
+                SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from roster where date like '" + searchtxt.Text + "'", cnx);
+                DataTable tabla = new DataTable("roster");
+                adac.Fill(tabla);
+                dataGridView1.DataSource = tabla;
+            }
+            else if (ssalary_roster.Checked)
+            {
+                SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from roster where final_salary_emp like '" + searchtxt.Text + "'", cnx);
+                DataTable tabla = new DataTable("roster");
+                adac.Fill(tabla);
+                dataGridView1.DataSource = tabla;
+            }
+            
+        }
     }
 }
