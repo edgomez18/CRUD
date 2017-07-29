@@ -65,7 +65,7 @@ namespace Crud
                  frm.salarycon.Text = con.Cells["neto_salary_emp"].Value.ToString();
                  frm.arscon.Text = con.Cells["ars"].Value.ToString();
                  frm.afpcon.Text = con.Cells["afp"].Value.ToString();
-                 frm.deptcon.Text = con.Cells["others_desc"].Value.ToString();
+                 frm.descon.Text = con.Cells["others_desc"].Value.ToString();
                  frm.netosalarycon.Text = con.Cells["final_salary_emp"].Value.ToString();
                 frm.Show();
             }
