@@ -46,6 +46,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Crud.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
@@ -75,11 +78,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="calendar.cs">
+    <Compile Include="addrouster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="calendar.Designer.cs">
-      <DependentUpon>calendar.cs</DependentUpon>
+    <Compile Include="addrouster.Designer.cs">
+      <DependentUpon>addrouster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="confirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="confirmation.Designer.cs">
+      <DependentUpon>confirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="nomina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="nomina.Designer.cs">
+      <DependentUpon>nomina.cs</DependentUpon>
     </Compile>
     <Compile Include="CEmpleado.cs">
       <SubType>Form</SubType>
@@ -96,8 +117,29 @@
     <Compile Include="Operacion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="calendar.resx">
-      <DependentUpon>calendar.cs</DependentUpon>
+    <Compile Include="roster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="roster.Designer.cs">
+      <DependentUpon>roster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="seeroster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="seeroster.Designer.cs">
+      <DependentUpon>seeroster.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="addrouster.resx">
+      <DependentUpon>addrouster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="confirmation.resx">
+      <DependentUpon>confirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nomina.resx">
+      <DependentUpon>nomina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CEmpleado.resx">
       <DependentUpon>CEmpleado.cs</DependentUpon>
@@ -114,6 +156,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="roster.resx">
+      <DependentUpon>roster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="seeroster.resx">
+      <DependentUpon>seeroster.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

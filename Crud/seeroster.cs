@@ -71,5 +71,23 @@ namespace Crud
             }
             else { MessageBox.Show("No hay acciones para el estado de esta nomina"); }
         }
+
+        public void refresh_Click(object sender, EventArgs e)
+        {
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
+            try
+            {
+                cnx.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+
+            }
+            SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from roster", cnx);
+            DataTable tabla = new DataTable("Roster");
+            adac.Fill(tabla);
+            dataGridView1.DataSource = tabla;
+        }
     }
 }

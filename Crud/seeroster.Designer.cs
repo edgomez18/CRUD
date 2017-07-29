@@ -30,6 +30,7 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.searchtxt = new System.Windows.Forms.TextBox();
+            this.refreshbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,11 +51,22 @@
             this.searchtxt.Size = new System.Drawing.Size(227, 20);
             this.searchtxt.TabIndex = 1;
             // 
+            // refreshbtn
+            // 
+            this.refreshbtn.Location = new System.Drawing.Point(1154, 9);
+            this.refreshbtn.Name = "refreshbtn";
+            this.refreshbtn.Size = new System.Drawing.Size(75, 23);
+            this.refreshbtn.TabIndex = 2;
+            this.refreshbtn.Text = "Recargar";
+            this.refreshbtn.UseVisualStyleBackColor = true;
+            this.refreshbtn.Click += new System.EventHandler(this.refresh_Click);
+            // 
             // seeroster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 261);
+            this.Controls.Add(this.refreshbtn);
             this.Controls.Add(this.searchtxt);
             this.Controls.Add(this.dataGridView1);
             this.Name = "seeroster";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox searchtxt;
+        public System.Windows.Forms.Button refreshbtn;
     }
 }
