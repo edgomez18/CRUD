@@ -33,38 +33,40 @@ namespace Crud
             DataTable tabla = new DataTable("Roster");
             adac.Fill(tabla);
             dataGridView1.DataSource = tabla;
-
+            
         }
 
         private void seeroster_Load(object sender, EventArgs e)
         {
             CargarDatos();
+            
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow act = dataGridView1.Rows[e.RowIndex];
             string status = act.Cells["status"].Value.ToString();
 
             if (status == "Cerrada")
             {
-                MessageBox.Show("esta nomina esta cerrada, No puede ser modificada. Contacte al soporte tecnico");
+                MessageBox.Show("Esta nomina esta cerrada, No puede ser modificada. Contacte al soporte tecnico");
             }
             else if (status == "Abierta")
             {
                 confirmation frm = new confirmation();
-                /* DataGridViewRow act = dataGridView1.Rows[e.RowIndex];
-                 frm.idemp.Text = act.Cells["id"].Value.ToString();
-                 frm.namemptxt.Text = act.Cells["name"].Value.ToString();
-                 frm.lnamemptxt.Text = act.Cells["lastname"].Value.ToString();
-                 frm.idpersemptxt.Text = act.Cells["idperson"].Value.ToString();
-
-                 //frm.dateingemp.Text = act.Cells["years"].Value.ToString();
-                 frm.sexempcb.Text = act.Cells["sex"].Value.ToString();
-                 frm.salarytxt.Text = act.Cells["salary"].Value.ToString();
-                 frm.deptxt.Text = act.Cells["dept"].Value.ToString();
-                 frm.positiontxt.Text = act.Cells["position"].Value.ToString();
-                 frm.saveemp.Visible = false;*/
+                DataGridViewRow con = dataGridView1.Rows[e.RowIndex];
+                 frm.idcon.Text = con.Cells["id_roster"].Value.ToString();
+                 frm.namecon.Text = con.Cells["name_emp"].Value.ToString();
+                 frm.deptcon.Text = con.Cells["dept_emp"].Value.ToString();
+                 frm.positioncon.Text = con.Cells["position_emp"].Value.ToString();
+                 frm.datecon.Text = con.Cells["date"].Value.ToString();
+                 frm.startdatecon.Text = con.Cells["date_start"].Value.ToString();
+                 frm.enddatecon.Text = con.Cells["date_end"].Value.ToString();
+                 frm.salarycon.Text = con.Cells["neto_salary_emp"].Value.ToString();
+                 frm.arscon.Text = con.Cells["ars"].Value.ToString();
+                 frm.afpcon.Text = con.Cells["afp"].Value.ToString();
+                 frm.deptcon.Text = con.Cells["others_desc"].Value.ToString();
+                 frm.netosalarycon.Text = con.Cells["final_salary_emp"].Value.ToString();
                 frm.Show();
             }
             else { MessageBox.Show("No hay acciones para el estado de esta nomina"); }

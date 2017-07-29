@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.searchtxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,22 +43,32 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
+            // searchtxt
+            // 
+            this.searchtxt.Location = new System.Drawing.Point(325, 12);
+            this.searchtxt.Name = "searchtxt";
+            this.searchtxt.Size = new System.Drawing.Size(227, 20);
+            this.searchtxt.TabIndex = 1;
+            // 
             // seeroster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 261);
+            this.Controls.Add(this.searchtxt);
             this.Controls.Add(this.dataGridView1);
             this.Name = "seeroster";
             this.Text = "seeroster";
             this.Load += new System.EventHandler(this.seeroster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox searchtxt;
     }
 }
