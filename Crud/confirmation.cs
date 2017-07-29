@@ -67,6 +67,7 @@ namespace Crud
                 insertion.ExecuteNonQuery();
                 MessageBox.Show("Se ha confrimado!");
                 Close();
+                
             }
             else if (result == DialogResult.No)
             {
@@ -75,8 +76,7 @@ namespace Crud
 
         private void cancelbtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
+                    }
         }
     }
 
