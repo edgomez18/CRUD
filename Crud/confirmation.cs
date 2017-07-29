@@ -76,6 +76,7 @@ namespace Crud
 
         private void cancelbtn_Click(object sender, EventArgs e)
         {
+            this.Close();
                     }
         }
     }
