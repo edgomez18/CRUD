@@ -99,6 +99,18 @@ namespace Crud
                 if (insertion.ExecuteNonQuery() > 0)
                 {
                     MessageBox.Show("Se agrego correctamente");
+                    idroster.Text = "";
+                    nametxt.Text = "";
+                    lnametxt.Text = "";
+                    deptxt.Text = "";
+                    positiontxt.Text = "";
+                    salarytxt.Text = "";
+                    arstxt.Text = "";
+                    afptxt.Text = "";
+                    desctxt.Text = "";
+                    salaryrealtxt.Text = "";
+                    searchbtn.Focus();
+                    
                 }
                 else
                 {
