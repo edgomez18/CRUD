@@ -60,8 +60,11 @@
             this.savebtn = new System.Windows.Forms.Button();
             this.cancelbtn = new System.Windows.Forms.Button();
             this.statuscb = new System.Windows.Forms.ComboBox();
-            this.calcularbtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.irstxt = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.totaldesctxt = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -85,6 +88,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos el Empleado";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // searchbtn
             // 
@@ -179,6 +183,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.totaldesctxt);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.irstxt);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.salaryrealtxt);
             this.groupBox2.Controls.Add(this.label11);
@@ -191,7 +199,7 @@
             this.groupBox2.Controls.Add(this.salarytxt);
             this.groupBox2.Location = new System.Drawing.Point(12, 171);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(435, 100);
+            this.groupBox2.Size = new System.Drawing.Size(435, 123);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Nomina";
@@ -199,7 +207,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(224, 77);
+            this.label12.Location = new System.Drawing.Point(224, 100);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 13);
             this.label12.TabIndex = 15;
@@ -207,7 +215,7 @@
             // 
             // salaryrealtxt
             // 
-            this.salaryrealtxt.Location = new System.Drawing.Point(304, 74);
+            this.salaryrealtxt.Location = new System.Drawing.Point(304, 97);
             this.salaryrealtxt.Name = "salaryrealtxt";
             this.salaryrealtxt.Size = new System.Drawing.Size(121, 20);
             this.salaryrealtxt.TabIndex = 14;
@@ -217,13 +225,13 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(174, 47);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 13);
+            this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 13;
-            this.label11.Text = "Otros Descunetos:";
+            this.label11.Text = "Ahorro:";
             // 
             // desctxt
             // 
-            this.desctxt.Location = new System.Drawing.Point(275, 44);
+            this.desctxt.Location = new System.Drawing.Point(222, 47);
             this.desctxt.Name = "desctxt";
             this.desctxt.Size = new System.Drawing.Size(100, 20);
             this.desctxt.TabIndex = 12;
@@ -347,7 +355,7 @@
             // 
             // savebtn
             // 
-            this.savebtn.Location = new System.Drawing.Point(292, 297);
+            this.savebtn.Location = new System.Drawing.Point(294, 327);
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(75, 23);
             this.savebtn.TabIndex = 3;
@@ -357,7 +365,7 @@
             // 
             // cancelbtn
             // 
-            this.cancelbtn.Location = new System.Drawing.Point(373, 297);
+            this.cancelbtn.Location = new System.Drawing.Point(375, 327);
             this.cancelbtn.Name = "cancelbtn";
             this.cancelbtn.Size = new System.Drawing.Size(75, 23);
             this.cancelbtn.TabIndex = 4;
@@ -372,37 +380,58 @@
             this.statuscb.Items.AddRange(new object[] {
             "Abierta",
             "Cerrada"});
-            this.statuscb.Location = new System.Drawing.Point(162, 299);
+            this.statuscb.Location = new System.Drawing.Point(164, 329);
             this.statuscb.Name = "statuscb";
             this.statuscb.Size = new System.Drawing.Size(121, 21);
             this.statuscb.TabIndex = 5;
             // 
-            // calcularbtn
-            // 
-            this.calcularbtn.Location = new System.Drawing.Point(68, 296);
-            this.calcularbtn.Name = "calcularbtn";
-            this.calcularbtn.Size = new System.Drawing.Size(75, 23);
-            this.calcularbtn.TabIndex = 6;
-            this.calcularbtn.Text = "Calcular";
-            this.calcularbtn.UseVisualStyleBackColor = true;
-            this.calcularbtn.Click += new System.EventHandler(this.calcularbtn_Click);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(201, 283);
+            this.label13.Location = new System.Drawing.Point(203, 313);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(45, 13);
             this.label13.TabIndex = 16;
             this.label13.Text = "Estatus:";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(8, 73);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(28, 13);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "ISR:";
+            // 
+            // irstxt
+            // 
+            this.irstxt.Location = new System.Drawing.Point(56, 70);
+            this.irstxt.Name = "irstxt";
+            this.irstxt.Size = new System.Drawing.Size(100, 20);
+            this.irstxt.TabIndex = 16;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(224, 76);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(95, 13);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "Otros Descunetos:";
+            // 
+            // totaldesctxt
+            // 
+            this.totaldesctxt.Location = new System.Drawing.Point(325, 73);
+            this.totaldesctxt.Name = "totaldesctxt";
+            this.totaldesctxt.Size = new System.Drawing.Size(100, 20);
+            this.totaldesctxt.TabIndex = 18;
+            // 
             // addrouster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 332);
+            this.ClientSize = new System.Drawing.Size(460, 362);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.calcularbtn);
             this.Controls.Add(this.statuscb);
             this.Controls.Add(this.cancelbtn);
             this.Controls.Add(this.savebtn);
@@ -457,8 +486,11 @@
         public System.Windows.Forms.Button savebtn;
         public System.Windows.Forms.Button cancelbtn;
         public System.Windows.Forms.ComboBox statuscb;
-        private System.Windows.Forms.Button calcularbtn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button searchbtn;
+        private System.Windows.Forms.Label label15;
+        public System.Windows.Forms.TextBox totaldesctxt;
+        private System.Windows.Forms.Label label14;
+        public System.Windows.Forms.TextBox irstxt;
     }
 }
