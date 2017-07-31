@@ -31,7 +31,7 @@
             this.stxt = new System.Windows.Forms.TextBox();
             this.sbnt = new System.Windows.Forms.Button();
             this.newbnt = new System.Windows.Forms.Button();
-            this.connection = new System.Windows.Forms.Button();
+            this.refresh = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.sid = new System.Windows.Forms.RadioButton();
             this.sname = new System.Windows.Forms.RadioButton();
@@ -67,15 +67,15 @@
             this.newbnt.UseVisualStyleBackColor = true;
             this.newbnt.Click += new System.EventHandler(this.newbnt_Click);
             // 
-            // connection
+            // refresh
             // 
-            this.connection.Location = new System.Drawing.Point(725, 22);
-            this.connection.Name = "connection";
-            this.connection.Size = new System.Drawing.Size(75, 23);
-            this.connection.TabIndex = 8;
-            this.connection.Text = "Nomina";
-            this.connection.UseVisualStyleBackColor = true;
-            this.connection.Click += new System.EventHandler(this.connection_Click);
+            this.refresh.Location = new System.Drawing.Point(725, 22);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(75, 23);
+            this.refresh.TabIndex = 8;
+            this.refresh.Text = "Recargar";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.connection_Click);
             // 
             // dataGridView1
             // 
@@ -141,7 +141,7 @@
             this.Controls.Add(this.sname);
             this.Controls.Add(this.sid);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.connection);
+            this.Controls.Add(this.refresh);
             this.Controls.Add(this.newbnt);
             this.Controls.Add(this.sbnt);
             this.Controls.Add(this.stxt);
@@ -159,7 +159,7 @@
         private System.Windows.Forms.TextBox stxt;
         private System.Windows.Forms.Button sbnt;
         private System.Windows.Forms.Button newbnt;
-        private System.Windows.Forms.Button connection;
+        private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.RadioButton sid;
         private System.Windows.Forms.RadioButton sname;

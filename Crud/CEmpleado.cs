@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.IO;
 
 namespace Crud
 {
@@ -79,8 +80,18 @@ namespace Crud
                 MessageBox.Show(ex.Message, "Error");
 
             }
-            string comando = "INSERT INTO empleado(name, lastname, idperson, bday, years, sex, salary, dept, position) VALUES('" + namemptxt.Text + "', '" + lnamemptxt.Text + "','" + idpersemptxt.Text + "','" + bdayemptxt.Text + "', '" + dateingemp.Text + "', '" + sexempcb.Text + "', '" + salarytxt.Text + "', '" + deptxt.Text + "', '" + positiontxt.Text + "');";
+            string comando = "INSERT INTO empleado(name, lastname, idperson, bday, years, sex, salary, dept, position, photo) VALUES('" + namemptxt.Text + "', '" + lnamemptxt.Text + "','" + idpersemptxt.Text + "','" + bdayemptxt.Text + "', '" + dateingemp.Text + "', '" + sexempcb.Text + "', '" + salarytxt.Text + "', '" + deptxt.Text + "', '" + positiontxt.Text + "', '"+phototxt.Text+"');";
             SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
+            if (string.IsNullOrEmpty(namemptxt.Text))
+            {
+                MessageBox.Show("Favor ingrese el nombre del ampleado antes");
+            }
+            else
+            {
+                string start = Convert.ToString(phototxt.Text);
+                string end = @"C:\Uapa\17-2\Programacion III\asignatura 3\Crud\Crud\img\" + namemptxt.Text + ".jpg";
+                File.Copy(start, end);
+            }
             if (insertion.ExecuteNonQuery() > 0) { 
                 MessageBox.Show("Se agrego correctamente");
             }
@@ -91,6 +102,9 @@ namespace Crud
             dateingemp.Text = "";
             sexempcb.Text = "";
             salarytxt.Text = "";
+            phototxt.Text = "";
+            positiontxt.Text = "";
+            
             this.namemptxt.Focus();
 
             /*Operacion oper = new Operacion();
@@ -163,7 +177,7 @@ namespace Crud
                     MessageBox.Show(ex.Message, "Error");
 
                 }
-                string comando = "UPDATE empleado set name = '" + namemptxt.Text + "', lastname = '" + lnamemptxt.Text + "', idperson = '" + idpersemptxt.Text + "', bday = '" + bdayemptxt.Text + "', years = '" + dateingemp.Text + "', sex = '" + sexempcb.Text + "', salary = '" + salarytxt.Text + "', dept = '" +deptxt.Text+"', position = '"+positiontxt.Text+"' WHERE id = '" + idemp.Text + "'";
+                string comando = "UPDATE empleado set name = '" + namemptxt.Text + "', lastname = '" + lnamemptxt.Text + "', idperson = '" + idpersemptxt.Text + "', bday = '" + bdayemptxt.Text + "', years = '" + dateingemp.Text + "', sex = '" + sexempcb.Text + "', salary = '" + salarytxt.Text + "', dept = '" +deptxt.Text+"', position = '"+positiontxt.Text+"', photo = '"+phototxt.Text+"' WHERE id = '" + idemp.Text + "'";
                 SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
                 insertion.ExecuteNonQuery();
                 MessageBox.Show("Se ha actualizado!");
@@ -192,6 +206,46 @@ namespace Crud
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog select = new OpenFileDialog();
+            select.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png";
+            if (select.ShowDialog() == DialogResult.OK)
+            {
+                phototxt.Text = select.FileName;
+                if (string.IsNullOrEmpty(phototxt.Text))
+                {
+                    Bitmap picture = new Bitmap("");
+                    photoemp.Image = (Image)picture;
+                }
+                else
+                {
+                    Bitmap picture = new Bitmap(phototxt.Text);
+                    photoemp.Image = (Image)picture;
+                }
+            }
+        }
+
+        private void move_Click(object sender, EventArgs e)
+        {
+            //  C:\Users\ray\Desktop\move
+            if (string.IsNullOrEmpty(namemptxt.Text))
+            {
+                MessageBox.Show("Favor ingrese el nombre del ampleado antes");
+            }
+            else
+            {
+                string start = Convert.ToString(phototxt.Text);
+                string end = @"C:\Users\ray\Desktop\move\" + namemptxt.Text + ".jpg";
+                File.Move(start, end);
+            }
         }
     }
 }

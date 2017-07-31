@@ -48,6 +48,9 @@
             this.dateingemp = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.deptxt = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.positiontxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.salarytxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -58,12 +61,16 @@
             this.edadtxt = new System.Windows.Forms.TextBox();
             this.updatebtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
-            this.positiontxt = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.deptxt = new System.Windows.Forms.ComboBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.photoemp = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.phototxt = new System.Windows.Forms.TextBox();
+            this.move = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.photoemp)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -166,9 +173,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(221, 9);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(292, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 13);
+            this.label8.Size = new System.Drawing.Size(209, 26);
             this.label8.TabIndex = 11;
             this.label8.Text = "Datos del Empleado";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -176,7 +184,7 @@
             // 
             // saveemp
             // 
-            this.saveemp.Location = new System.Drawing.Point(248, 265);
+            this.saveemp.Location = new System.Drawing.Point(324, 244);
             this.saveemp.Name = "saveemp";
             this.saveemp.Size = new System.Drawing.Size(75, 23);
             this.saveemp.TabIndex = 12;
@@ -186,7 +194,7 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(413, 265);
+            this.cancel.Location = new System.Drawing.Point(489, 244);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(75, 23);
             this.cancel.TabIndex = 13;
@@ -196,7 +204,7 @@
             // 
             // clearbtn
             // 
-            this.clearbtn.Location = new System.Drawing.Point(329, 265);
+            this.clearbtn.Location = new System.Drawing.Point(405, 244);
             this.clearbtn.Name = "clearbtn";
             this.clearbtn.Size = new System.Drawing.Size(75, 23);
             this.clearbtn.TabIndex = 14;
@@ -246,7 +254,7 @@
             this.groupBox1.Controls.Add(this.sexempcb);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(12, 25);
+            this.groupBox1.Location = new System.Drawing.Point(10, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(277, 172);
             this.groupBox1.TabIndex = 19;
@@ -261,13 +269,37 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.salarytxt);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(295, 120);
+            this.groupBox2.Location = new System.Drawing.Point(293, 135);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 103);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Salario";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // deptxt
+            // 
+            this.deptxt.FormattingEnabled = true;
+            this.deptxt.Location = new System.Drawing.Point(55, 51);
+            this.deptxt.Name = "deptxt";
+            this.deptxt.Size = new System.Drawing.Size(117, 21);
+            this.deptxt.TabIndex = 6;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(-1, 80);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(50, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Posicion:";
+            // 
+            // positiontxt
+            // 
+            this.positiontxt.Location = new System.Drawing.Point(55, 77);
+            this.positiontxt.Name = "positiontxt";
+            this.positiontxt.Size = new System.Drawing.Size(117, 20);
+            this.positiontxt.TabIndex = 4;
             // 
             // label10
             // 
@@ -301,7 +333,7 @@
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.edadtxt);
-            this.groupBox3.Location = new System.Drawing.Point(295, 25);
+            this.groupBox3.Location = new System.Drawing.Point(293, 40);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 89);
             this.groupBox3.TabIndex = 21;
@@ -343,7 +375,7 @@
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(167, 265);
+            this.updatebtn.Location = new System.Drawing.Point(243, 244);
             this.updatebtn.Name = "updatebtn";
             this.updatebtn.Size = new System.Drawing.Size(75, 23);
             this.updatebtn.TabIndex = 22;
@@ -353,7 +385,7 @@
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(86, 265);
+            this.deletebtn.Location = new System.Drawing.Point(162, 244);
             this.deletebtn.Name = "deletebtn";
             this.deletebtn.Size = new System.Drawing.Size(75, 23);
             this.deletebtn.TabIndex = 23;
@@ -361,35 +393,63 @@
             this.deletebtn.UseVisualStyleBackColor = true;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
-            // positiontxt
+            // groupBox4
             // 
-            this.positiontxt.Location = new System.Drawing.Point(55, 77);
-            this.positiontxt.Name = "positiontxt";
-            this.positiontxt.Size = new System.Drawing.Size(117, 20);
-            this.positiontxt.TabIndex = 4;
+            this.groupBox4.Controls.Add(this.phototxt);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.photoemp);
+            this.groupBox4.Location = new System.Drawing.Point(500, 40);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(200, 198);
+            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Fotografia";
             // 
-            // label11
+            // photoemp
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(-1, 80);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Posicion:";
+            this.photoemp.Location = new System.Drawing.Point(7, 20);
+            this.photoemp.Name = "photoemp";
+            this.photoemp.Size = new System.Drawing.Size(187, 139);
+            this.photoemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.photoemp.TabIndex = 0;
+            this.photoemp.TabStop = false;
+            this.photoemp.WaitOnLoad = true;
+            this.photoemp.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // deptxt
+            // button3
             // 
-            this.deptxt.FormattingEnabled = true;
-            this.deptxt.Location = new System.Drawing.Point(55, 51);
-            this.deptxt.Name = "deptxt";
-            this.deptxt.Size = new System.Drawing.Size(121, 21);
-            this.deptxt.TabIndex = 6;
+            this.button3.Location = new System.Drawing.Point(165, 166);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(28, 23);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "\\\\";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // phototxt
+            // 
+            this.phototxt.Location = new System.Drawing.Point(7, 168);
+            this.phototxt.Name = "phototxt";
+            this.phototxt.Size = new System.Drawing.Size(152, 20);
+            this.phototxt.TabIndex = 2;
+            // 
+            // move
+            // 
+            this.move.Location = new System.Drawing.Point(618, 243);
+            this.move.Name = "move";
+            this.move.Size = new System.Drawing.Size(75, 23);
+            this.move.TabIndex = 25;
+            this.move.Text = "button4";
+            this.move.UseVisualStyleBackColor = true;
+            this.move.Click += new System.EventHandler(this.move_Click);
             // 
             // CEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 300);
+            this.ClientSize = new System.Drawing.Size(710, 278);
+            this.Controls.Add(this.move);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.updatebtn);
             this.Controls.Add(this.groupBox3);
@@ -409,6 +469,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.photoemp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,5 +512,10 @@
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox positiontxt;
         public System.Windows.Forms.ComboBox deptxt;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button move;
+        public System.Windows.Forms.TextBox phototxt;
+        public System.Windows.Forms.PictureBox photoemp;
     }
 }

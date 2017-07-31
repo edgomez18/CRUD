@@ -32,7 +32,18 @@ namespace Crud
             frm.salarytxt.Text = act.Cells["salary"].Value.ToString();
             frm.deptxt.Text = act.Cells["dept"].Value.ToString();
             frm.positiontxt.Text = act.Cells["position"].Value.ToString();
+            frm.phototxt.Text = act.Cells["photo"].Value.ToString();
+            if (string.IsNullOrEmpty(act.Cells["photo"].Value.ToString()))
+            {
+                
+            }
+            else
+            {
+                Bitmap picture = new Bitmap(frm.phototxt.Text);
+                frm.photoemp.Image = (Image)picture;
+            }
             frm.saveemp.Visible = false;
+
             frm.Show();
         }
 
@@ -51,9 +62,18 @@ namespace Crud
 
         private void connection_Click(object sender, EventArgs e)
         {
-           nomina frm = new nomina();
-           frm.Show();
-           
+
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
+            try
+            {
+                cnx.Open();
+                CargarDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+
+            }
 
         }
 
