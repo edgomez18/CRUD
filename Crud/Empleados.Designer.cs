@@ -37,6 +37,7 @@
             this.sname = new System.Windows.Forms.RadioButton();
             this.slname = new System.Windows.Forms.RadioButton();
             this.sidperson = new System.Windows.Forms.RadioButton();
+            this.printbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,11 +132,22 @@
             this.sidperson.Text = "Cedula";
             this.sidperson.UseVisualStyleBackColor = true;
             // 
+            // printbtn
+            // 
+            this.printbtn.Location = new System.Drawing.Point(806, 22);
+            this.printbtn.Name = "printbtn";
+            this.printbtn.Size = new System.Drawing.Size(75, 23);
+            this.printbtn.TabIndex = 14;
+            this.printbtn.Text = "Imprimir";
+            this.printbtn.UseVisualStyleBackColor = true;
+            this.printbtn.Click += new System.EventHandler(this.printbtn_Click);
+            // 
             // manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 286);
+            this.Controls.Add(this.printbtn);
             this.Controls.Add(this.sidperson);
             this.Controls.Add(this.slname);
             this.Controls.Add(this.sname);
@@ -165,6 +177,7 @@
         private System.Windows.Forms.RadioButton sname;
         private System.Windows.Forms.RadioButton slname;
         private System.Windows.Forms.RadioButton sidperson;
+        private System.Windows.Forms.Button printbtn;
     }
 }
 

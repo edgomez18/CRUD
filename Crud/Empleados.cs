@@ -164,5 +164,26 @@ else if (sid.Checked)
         {
 
         }
+
+        private void printbtn_Click(object sender, EventArgs e)
+        {
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
+            try
+            {
+                cnx.Open();
+                DataSet ds = new DataSet();
+                SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from empleado", cnx);
+                DataTable tabla = new DataTable("Empleados");
+                adac.Fill(tabla);
+                ds.Tables.Add(tabla);
+                ds.WriteXml(@"C:\Uapa\17-2\db\listaempleados.xml");
+                MessageBox.Show("Hecho");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+
+            }
+        }
     }
 }

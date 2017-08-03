@@ -69,7 +69,7 @@ namespace Crud
 
         private void saveemp_Click(object sender, EventArgs e)
         {
-          
+            
             SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
             try
             {
@@ -80,8 +80,6 @@ namespace Crud
                 MessageBox.Show(ex.Message, "Error");
 
             }
-            string comando = "INSERT INTO empleado(name, lastname, idperson, bday, years, sex, salary, dept, position, photo) VALUES('" + namemptxt.Text + "', '" + lnamemptxt.Text + "','" + idpersemptxt.Text + "','" + bdayemptxt.Text + "', '" + dateingemp.Text + "', '" + sexempcb.Text + "', '" + salarytxt.Text + "', '" + deptxt.Text + "', '" + positiontxt.Text + "', '"+phototxt.Text+"');";
-            SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
             if (string.IsNullOrEmpty(namemptxt.Text))
             {
                 MessageBox.Show("Favor ingrese el nombre del ampleado antes");
@@ -92,6 +90,10 @@ namespace Crud
                 string end = @"C:\Uapa\17-2\Programacion III\asignatura 3\Crud\Crud\img\" + namemptxt.Text + ".jpg";
                 File.Copy(start, end);
             }
+            string photo = @"C:\Uapa\17-2\Programacion III\asignatura 3\Crud\Crud\img\'" + namemptxt.Text + "'.jpg";
+            string comando = "INSERT INTO empleado(name, lastname, idperson, bday, years, sex, salary, dept, position, photo) VALUES('" + namemptxt.Text + "', '" + lnamemptxt.Text + "','" + idpersemptxt.Text + "','" + bdayemptxt.Text + "', '" + dateingemp.Text + "', '" + sexempcb.Text + "', '" + salarytxt.Text + "', '" + deptxt.Text + "', '" + positiontxt.Text + "', '"+photo+"');";
+            SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
+           
             if (insertion.ExecuteNonQuery() > 0) { 
                 MessageBox.Show("Se agrego correctamente");
             }
@@ -177,7 +179,18 @@ namespace Crud
                     MessageBox.Show(ex.Message, "Error");
 
                 }
-                string comando = "UPDATE empleado set name = '" + namemptxt.Text + "', lastname = '" + lnamemptxt.Text + "', idperson = '" + idpersemptxt.Text + "', bday = '" + bdayemptxt.Text + "', years = '" + dateingemp.Text + "', sex = '" + sexempcb.Text + "', salary = '" + salarytxt.Text + "', dept = '" +deptxt.Text+"', position = '"+positiontxt.Text+"', photo = '"+phototxt.Text+"' WHERE id = '" + idemp.Text + "'";
+                if (string.IsNullOrEmpty(namemptxt.Text))
+                {
+                    MessageBox.Show("Favor ingrese el nombre del ampleado antes");
+                }
+                else
+                {
+                    string start = Convert.ToString(phototxt.Text);
+                    string end = @"C:\Uapa\17-2\Programacion III\asignatura 3\Crud\Crud\img\" + namemptxt.Text + ".jpg";
+                    File.Copy(start, end);
+                }
+                string photo = @"C:\Uapa\17-2\Programacion III\asignatura 3\Crud\Crud\img\'" + namemptxt.Text + "'.jpg";
+                string comando = "UPDATE empleado set name = '" + namemptxt.Text + "', lastname = '" + lnamemptxt.Text + "', idperson = '" + idpersemptxt.Text + "', bday = '" + bdayemptxt.Text + "', years = '" + dateingemp.Text + "', sex = '" + sexempcb.Text + "', salary = '" + salarytxt.Text + "', dept = '" +deptxt.Text+"', position = '"+positiontxt.Text+"', photo = '"+photo+"' WHERE id = '" + idemp.Text + "'";
                 SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
                 insertion.ExecuteNonQuery();
                 MessageBox.Show("Se ha actualizado!");
