@@ -37,6 +37,7 @@
             this.sdate_roster = new System.Windows.Forms.RadioButton();
             this.sid_roster = new System.Windows.Forms.RadioButton();
             this.searchbtn = new System.Windows.Forms.Button();
+            this.printbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,11 +134,22 @@
             this.searchbtn.UseVisualStyleBackColor = true;
             this.searchbtn.Click += new System.EventHandler(this.searchbtn_Click);
             // 
+            // printbtn
+            // 
+            this.printbtn.Location = new System.Drawing.Point(1195, 12);
+            this.printbtn.Name = "printbtn";
+            this.printbtn.Size = new System.Drawing.Size(75, 21);
+            this.printbtn.TabIndex = 9;
+            this.printbtn.Text = "Imprimir";
+            this.printbtn.UseVisualStyleBackColor = true;
+            this.printbtn.Click += new System.EventHandler(this.printbtn_Click);
+            // 
             // seeroster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 261);
+            this.Controls.Add(this.printbtn);
             this.Controls.Add(this.searchbtn);
             this.Controls.Add(this.sid_roster);
             this.Controls.Add(this.sdate_roster);
@@ -167,5 +179,6 @@
         private System.Windows.Forms.RadioButton sdate_roster;
         private System.Windows.Forms.RadioButton sid_roster;
         public System.Windows.Forms.Button searchbtn;
+        public System.Windows.Forms.Button printbtn;
     }
 }

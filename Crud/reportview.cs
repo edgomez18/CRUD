@@ -22,6 +22,7 @@ namespace Crud
             cryrpt.Load(name_report);
             crystalReportViewer1.ReportSource = cryrpt;
             crystalReportViewer1.Refresh();
+            
         }
 
         private void reportview_Load(object sender, EventArgs e)

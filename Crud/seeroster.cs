@@ -154,5 +154,11 @@ namespace Crud
             }
             
         }
+
+        private void printbtn_Click(object sender, EventArgs e)
+        {
+            printroster pr = new printroster();
+            pr.Show();
+        }
     }
 }
