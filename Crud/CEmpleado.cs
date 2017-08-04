@@ -187,10 +187,10 @@ namespace Crud
                 {
                     string start = Convert.ToString(phototxt.Text);
                     string end = @"C:\Uapa\17-2\Programacion III\asignatura 3\Crud\Crud\img\" + namemptxt.Text + ".jpg";
-                    File.Copy(start, end);
+                   // File.Copy(start, end);
                 }
                 string photo = @"C:\Uapa\17-2\Programacion III\asignatura 3\Crud\Crud\img\'" + namemptxt.Text + "'.jpg";
-                string comando = "UPDATE empleado set name = '" + namemptxt.Text + "', lastname = '" + lnamemptxt.Text + "', idperson = '" + idpersemptxt.Text + "', bday = '" + bdayemptxt.Text + "', years = '" + dateingemp.Text + "', sex = '" + sexempcb.Text + "', salary = '" + salarytxt.Text + "', dept = '" +deptxt.Text+"', position = '"+positiontxt.Text+"', photo = '"+photo+"' WHERE id = '" + idemp.Text + "'";
+                string comando = "UPDATE empleado set name = '" + namemptxt.Text + "', lastname = '" + lnamemptxt.Text + "', idperson = '" + idpersemptxt.Text + "', bday = '" + bdayemptxt.Text + "', years = '" + dateingemp.Text + "', sex = '" + sexempcb.Text + "', salary = '" + salarytxt.Text + "', dept = '" +deptxt.Text+"', position = '"+positiontxt.Text+"' WHERE id = '" + idemp.Text + "'";
                 SQLiteCommand insertion = new SQLiteCommand(comando, cnx);
                 insertion.ExecuteNonQuery();
                 MessageBox.Show("Se ha actualizado!");

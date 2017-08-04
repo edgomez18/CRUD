@@ -167,19 +167,26 @@ else if (sid.Checked)
 
         private void printbtn_Click(object sender, EventArgs e)
         {
+
+            SQLiteDataAdapter ad;
+            DataTable dt = new DataTable();
             SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
             try
             {
                 cnx.Open();
+                SQLiteCommand cmd = cnx.CreateCommand();
+                cmd.CommandText = "Select * from empleado";
+                ad = new SQLiteDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                SQLiteDataAdapter adac = new SQLiteDataAdapter("Select * from empleado", cnx);
-                DataTable tabla = new DataTable("Empleados");
-                adac.Fill(tabla);
-                ds.Tables.Add(tabla);
+                ad.Fill(dt);
+                ds.Tables.Add(dt);
+                ds.Tables[0].TableName = "Empleados";
                 ds.WriteXml(@"C:\Uapa\17-2\db\listaempleados.xml");
-                MessageBox.Show("Hecho");
+              reportview rv = new reportview("elist.rpt");
+                rv.Show();
+               
             }
-            catch (Exception ex)
+           catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
 
