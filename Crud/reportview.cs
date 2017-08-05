@@ -21,7 +21,7 @@ namespace Crud
             ReportDocument cryrpt = new ReportDocument();
             cryrpt.Load(name_report);
             crystalReportViewer1.ReportSource = cryrpt;
-            crystalReportViewer1.Refresh();
+            crystalReportViewer1.RefreshReport();
             
         }
 
