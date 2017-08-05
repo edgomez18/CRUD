@@ -62,10 +62,10 @@
             this.updatebtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.photoemp = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.phototxt = new System.Windows.Forms.TextBox();
-            this.move = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.photoemp = new System.Windows.Forms.PictureBox();
+            this.Printempbtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -405,16 +405,12 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Fotografia";
             // 
-            // photoemp
+            // phototxt
             // 
-            this.photoemp.Location = new System.Drawing.Point(7, 20);
-            this.photoemp.Name = "photoemp";
-            this.photoemp.Size = new System.Drawing.Size(187, 139);
-            this.photoemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.photoemp.TabIndex = 0;
-            this.photoemp.TabStop = false;
-            this.photoemp.WaitOnLoad = true;
-            this.photoemp.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.phototxt.Location = new System.Drawing.Point(7, 168);
+            this.phototxt.Name = "phototxt";
+            this.phototxt.Size = new System.Drawing.Size(152, 20);
+            this.phototxt.TabIndex = 2;
             // 
             // button3
             // 
@@ -426,29 +422,33 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // phototxt
+            // photoemp
             // 
-            this.phototxt.Location = new System.Drawing.Point(7, 168);
-            this.phototxt.Name = "phototxt";
-            this.phototxt.Size = new System.Drawing.Size(152, 20);
-            this.phototxt.TabIndex = 2;
+            this.photoemp.Location = new System.Drawing.Point(7, 20);
+            this.photoemp.Name = "photoemp";
+            this.photoemp.Size = new System.Drawing.Size(187, 139);
+            this.photoemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.photoemp.TabIndex = 0;
+            this.photoemp.TabStop = false;
+            this.photoemp.WaitOnLoad = true;
+            this.photoemp.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // move
+            // Printempbtn
             // 
-            this.move.Location = new System.Drawing.Point(618, 243);
-            this.move.Name = "move";
-            this.move.Size = new System.Drawing.Size(75, 23);
-            this.move.TabIndex = 25;
-            this.move.Text = "button4";
-            this.move.UseVisualStyleBackColor = true;
-            this.move.Click += new System.EventHandler(this.move_Click);
+            this.Printempbtn.Location = new System.Drawing.Point(618, 243);
+            this.Printempbtn.Name = "Printempbtn";
+            this.Printempbtn.Size = new System.Drawing.Size(75, 23);
+            this.Printempbtn.TabIndex = 25;
+            this.Printempbtn.Text = "Imprimir";
+            this.Printempbtn.UseVisualStyleBackColor = true;
+            this.Printempbtn.Click += new System.EventHandler(this.move_Click);
             // 
             // CEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 278);
-            this.Controls.Add(this.move);
+            this.Controls.Add(this.Printempbtn);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.updatebtn);
@@ -514,7 +514,7 @@
         public System.Windows.Forms.ComboBox deptxt;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button move;
+        private System.Windows.Forms.Button Printempbtn;
         public System.Windows.Forms.TextBox phototxt;
         public System.Windows.Forms.PictureBox photoemp;
     }

@@ -248,16 +248,31 @@ namespace Crud
 
         private void move_Click(object sender, EventArgs e)
         {
-            //  C:\Users\ray\Desktop\move
-            if (string.IsNullOrEmpty(namemptxt.Text))
+
+
+            SQLiteDataAdapter ad;
+            DataTable dt = new DataTable();
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\Uapa\\17-2\\db\\empleado.db;Version=3;");
+            try
             {
-                MessageBox.Show("Favor ingrese el nombre del ampleado antes");
+                cnx.Open();
+                SQLiteCommand cmd = cnx.CreateCommand();
+                cmd.CommandText = "Select * from empleado where id = '"+idemp.Text+"'";
+                ad = new SQLiteDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                ad.Fill(dt);
+                ds.Tables.Add(dt);
+                ds.Tables[0].TableName = "Empleados";
+                ds.WriteXml(@"C:\Uapa\17-2\db\infoempleado.xml");
+                //MessageBox.Show("Done");
+                reportview rv = new reportview("infoemp.rpt");
+                rv.Show();
+
             }
-            else
+            catch (Exception ex)
             {
-                string start = Convert.ToString(phototxt.Text);
-                string end = @"C:\Users\ray\Desktop\move\" + namemptxt.Text + ".jpg";
-                File.Move(start, end);
+                MessageBox.Show(ex.Message, "Error");
+
             }
         }
     }
