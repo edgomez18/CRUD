@@ -182,7 +182,7 @@ else if (sid.Checked)
                 ds.Tables.Add(dt);
                 ds.Tables[0].TableName = "Empleados";
                 ds.WriteXml(@"C:\Uapa\17-2\db\listaempleados.xml");
-              reportview rv = new reportview("elist.rpt");
+                reportview rv = new reportview("elist.rpt");
                 rv.Show();
                
             }
